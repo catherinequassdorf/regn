@@ -1,1 +1,1 @@
-STARTSIDA
+<?php include('templates/navigation.php');?>

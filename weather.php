@@ -1,1 +1,1 @@
-<!-- weather API -->
+<?php include('templates/header.php');?>

@@ -1,7 +1,8 @@
 <?php
 // index.php ligger längst ner i "turordningslistan". men alla nya sidor hänvisas till denna sidan om ingen annan finns i turordningen.
 ?>
-
+<?php include('config.php');?>
+<?php include('connect.php');?>
 <?php include('templates/header.php');?>
 <div id="ttr_main" class="row">
 <div id="ttr_content" class="col-md-12">

@@ -31,7 +31,7 @@ if ($err) {
 	echo "cURL Error #:" . $err;
 } else {
 	echo $response;
-    //designa response bättre?
+    //designa response bättre
 }
 ?>
 </div>

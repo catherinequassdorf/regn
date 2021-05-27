@@ -2,51 +2,49 @@
 <?php include('config.php');?>
 <?php include('connect.php');?>
 
-lägg till knappar som representerar städer där regn finns :P koppla dom till reservationssytem?
+
+<div class="col-md-4">
+    <h3>London</h3>
+<?php
+$sql = mysqli_query($db, "SELECT *  FROM umbrella");
+$count = mysqli_num_rows($sql); //mysqli_num_rows räknar rows från databasen
+
+//kollar ifall database returnerar more than 0 rows
+if($count>0){
+//om rows >0 FETCHAR VI DATAN!!!
+while ($row = mysqli_fetch_array($sql)){
+
+///denna delen stores variable i every field
+$umbrellaID=$row['umbrellaID'];
+$name=$row['name'];
+$color=$row['color'];
+$barcode=$row['barcode'];
+$vendingmachine=$row['vendingmachine'];
+$reserved=$row['reserved'];
+
+if($reserved==0) {     // 0 = available, 1 = not available
+
+//table creationnnn
+echo "<tr>";
+echo "<td> $name </td>";
+      echo "<div class='button-wrapper'><br/><td><form class='button return-button' method='GET' action='reserve.php'>
+      <button name='id' value='$id' type='submit'>Reserve</button></div><br/><br/>
+      </form>
+  </td>
+  </tr>";
 
 
-<h4> vilken stad är du i </h4>
+mysqli_close($db);
 
-<button name='vendingmachine' value='vendingmachine'  method="get" class='reserve' type='submit'>london</button>
-<button> Tokyo </button>
-<button> London </button>
-
-<?php 
-
-$query = "SELECT umbrellaID, vendingmachine FROM umbrella";
-
-$stmt = $conn->prepare($query);
-$stmt->bind_result($umbrellaID, $vendingmachine);
-$stmt->execute();
-
-while ($stmt->fetch()) {
-
-    if (isset($_GET['vendingmachine'])) {
-
-  if ($vendingmachine=='london'){
-  echo "hej";
-  }
-};
-
-//if (isset($_GET['bookID'])) { //button activated / get info
-  //$bookID = $_GET['bookID']; // bookID clicked same as bookID in database
-
-  //$query = "UPDATE Book SET reservation=1 WHERE bookID = $bookID";
-
-//$stmt = $conn->prepare($query);
-//$stmt->execute();
-
-//header("location: mybooks.php");
-//exit();
 }
+}
+}
+?>
+</div>
 
-<<<<<<< HEAD
-<p>image</p>
-<button> Reserve </button>
-<p>image</p>
-<button> Reserve </button>
-<p>image</p>
-<button> Reserve </button>
-=======
-//?>
->>>>>>> 738f254aedc2a3c3295da30ba9a259701b753f5b
+<div class="col-md-4">
+</div>
+
+<div class="col-md-4">
+</div>
+

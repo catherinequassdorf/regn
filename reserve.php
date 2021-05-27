@@ -2,10 +2,12 @@
 <?php include('config.php');?>
 <?php include('connect.php');?>
 
-
+<div class="col-md-12">
+    <h2>Available products to reserve!</h2>
 <div class="col-md-4">
     <h3>London</h3>
 <?php
+
 $sql = mysqli_query($db, "SELECT *  FROM umbrella");
 $count = mysqli_num_rows($sql); //mysqli_num_rows räknar rows från databasen
 

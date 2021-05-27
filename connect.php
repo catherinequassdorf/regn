@@ -4,7 +4,7 @@
 
 
 //opens database//
-$db = new mysqli($host, $user, $password, $database);
+$db = mysqli_connect('localhost', 'root', 'root', 'regn') or die('Error connecting');
 
 //checks if the database is connected
 if ($db->connect_error){

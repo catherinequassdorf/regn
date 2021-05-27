@@ -10,3 +10,10 @@ lägg till knappar som representerar städer där regn finns :P koppla dom till 
 <button> London </button>
 
 <h4> umbrellas available </h4>
+
+<p>image</p>
+<button> Reserve </button>
+<p>image</p>
+<button> Reserve </button>
+<p>image</p>
+<button> Reserve </button>

@@ -1,7 +1,4 @@
-<!-- funkar ej -->
-<?php include('config.php');?>
-
-<title>Registering!</title>
+<title>Registration!</title>
 </head>
 
 <body>
@@ -12,10 +9,12 @@
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-$query = "INSERT INTO customer(username, password, usertype) " . 
+$db = mysqli_connect('localhost', 'root', 'root', 'regn') or die('Error connecting');
+
+$query = "INSERT INTO customer (username, password, usertype) " . 
 "VALUES ('$username', '$password', 0)";
 
-$result = mysqli_query ($db, $query)
+$result = mysqli_query ($db, $query) //här är de fel
     or die('Error querying database.');
 
 mysqli_close($db);

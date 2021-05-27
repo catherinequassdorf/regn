@@ -1,7 +1,45 @@
 body {
-    background: red;
+    background:#f0ede8 !important;
 }
 
-h1 {
-    color: red;
+p {
+    font-family: Arial, 'Helvetica', sans-serif;
+    font-size: 14px;
+}
+
+h1,h2,h3 {
+    font-family: Arial, 'Helvetica', sans-serif;
+    font-weight: 700;
+}
+
+.active {
+    font-style: italic;
+}
+
+/* NAVIGATION */
+
+.nav-list {
+    text-align: center;
+    margin-top: 22px;
+}
+
+.nav-list a {
+    font-family: Arial, 'Helvetica', sans-serif;
+    font-weight: 700;  
+    font-size: 16px;
+    list-style: none;
+    text-decoration: none;
+    color: #000;
+    padding: 22px;
+}
+
+.nav-list a:hover {
+    font-style: italic;
+    color: black;
+    text-decoration: none;
+} 
+
+.row-regn {
+    margin-top: 88px;
+    margin-bottom: 88px;
 }

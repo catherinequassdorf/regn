@@ -5,15 +5,37 @@ lägg till knappar som representerar städer där regn finns :P koppla dom till 
 
 <h4> vilken stad är du i </h4>
 
-<button> London </button>
+<button name='vendingmachine' value='vendingmachine'  method="get" class='reserve' type='submit'>london</button>
 <button> Tokyo </button>
 <button> London </button>
 
-<h4> umbrellas available </h4>
+<?php 
 
-<p>image</p>
-<button> Reserve </button>
-<p>image</p>
-<button> Reserve </button>
-<p>image</p>
-<button> Reserve </button>
+$query = "SELECT umbrellaID, vendingmachine FROM umbrella";
+
+$stmt = $conn->prepare($query);
+$stmt->bind_result($umbrellaID, $vendingmachine);
+$stmt->execute();
+
+while ($stmt->fetch()) {
+
+    if (isset($_GET['vendingmachine'])) {
+
+  if ($vendingmachine=='london'){
+  echo "hej";
+  }
+};
+
+//if (isset($_GET['bookID'])) { //button activated / get info
+  //$bookID = $_GET['bookID']; // bookID clicked same as bookID in database
+
+  //$query = "UPDATE Book SET reservation=1 WHERE bookID = $bookID";
+
+//$stmt = $conn->prepare($query);
+//$stmt->execute();
+
+//header("location: mybooks.php");
+//exit();
+}
+
+//?>

@@ -12,6 +12,10 @@ h1,h2,h3 {
     font-weight: 700;
 }
 
+h4 {
+    
+}
+
 .active {
     font-style: italic;
 }

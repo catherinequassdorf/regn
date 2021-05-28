@@ -6,6 +6,7 @@
 <div class="col-md-12">
 <h2>Login</h2>
 
+
 <?php
 
       ini_set('session.cookie_httponly', true); // cookie is only accessible via php, not javascript which makes it harder for the hacker
@@ -36,10 +37,11 @@
             $_SESSION['user'] = $username; //username is same as variable above
            // $_SESSION['password'] = $row["password"]; 
             $_SESSION['usertype'] = $row["usertype"]; //sets usertype for session
-           // $_SESSION['umbrella_fk'] = $row["umbrella_fk"];
-           // $_SESSION['rainponcho_fk'] = $row["rainponcho_fk"];
+           $_SESSION['umbrella_fk'] = $row["umbrella_fk"];
+           $_SESSION['rainponcho_fk'] = $row["rainponcho_fk"];
             $_SESSION['loginstatus'] = true; //user is logged in and visible in nav
             // add ip for session hijacking
+        
 
           if ($row['usertype'] == '1') {
             header("location:user.php");
@@ -47,15 +49,19 @@
             header("location:admin.php");
         } else {
           echo "<h3> Login failed </h3>";
+          //usertype gör så att det strular
         }
 
         
 
+        
+
       }
+      
     }
 
     
-  if (!isset($_SESSION['user'])){ ?>
+  if (!isset($_SESSION['user']) && ['customerID'] ){ ?>
       <div id="login">
           <form action="login.php" method="POST">
             <p>Username</p>
@@ -68,10 +74,7 @@
         </div>
 
         </br>  
-        
-        <?php
-      }else{ ?>
-            <a href="logout.php">Log out</a>
+      
     <?php	}
   ?>
   
@@ -81,4 +84,3 @@
 </div>
       </div>
       </div>
-

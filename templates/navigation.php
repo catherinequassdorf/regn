@@ -1,6 +1,3 @@
-<?php
-$currentPage = basename($_SERVER['PHP_SELF']);
-?>
 
 <nav>
     <ul class="nav-list">
@@ -9,7 +6,15 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         <a href="weather.php" class= "<?php echo($currentPage == 'weather.php') ? 'active' : ''?> ">WEATHER</a>
         <a href="reserve.php" class= "<?php echo($currentPage == 'reserve.php') ? 'active' : ''?> ">RESERVE</a>
         <a href="register.php" class= "<?php echo($currentPage == 'register.php') ? 'active' : ''?> ">REGISTER</a>
-        <a href="myreservations.php" class= "<?php echo($currentPage == 'myreservations.php') ? 'active' : ''?> ">MY RESERVATIONS</a>
-        <a href="login.php" class= "<?php echo($currentPage == 'login.php') ? 'active' : ''?> ">LOGIN</a>
+
+
+        <?php if (isset($_SESSION['loginstatus'])) {
+            ?><a class="<?php echo ($current_page == 'logout.php') ? 'active' : NULL ?>"href="logout.php">Log out!</a><?php
+
+		} else {
+            ?><a class="<?php echo ($current_page == 'loginpage.php') ? 'active' : NULL ?>"href="login.php">Log in?</a><?php
+		}
+	
+    ?>
         </ul>
 </nav>

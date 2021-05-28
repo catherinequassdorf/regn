@@ -1,6 +1,5 @@
 <?php include('templates/header.php');?>
 
-
 <div class="col-md-12">
 <div class="d-flex justify-content-center">
 <?php

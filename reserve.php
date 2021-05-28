@@ -3,9 +3,13 @@
 <?php include('connect.php');?>
 
 <div class="col-md-12">
+<div class="d-flex justify-content-center">
     <h2>Available products to reserve!</h2>
-<div class="col-md-4">
-    <h3>London</h3>
+</div>
+</div>
+
+
+<div class="col-md-12">
 <?php
 
 $sql = mysqli_query($db, "SELECT *  FROM umbrella");
@@ -24,10 +28,11 @@ $barcode=$row['barcode'];
 $vendingmachine=$row['vendingmachine'];
 $reserved=$row['reserved'];
 
-if($reserved==0) {     // 0 = available, 1 = not available
+if($reserved==0 && $vendingmachine=='london') {     // 0 = available, 1 = not available
 
 //table creationnnn
-echo "<tr>";
+echo "<h2>London</h2>";
+
 echo "<td> $name </td>";
       echo "<div class='button-wrapper'><br/><td><form class='button return-button' method='GET' action='reserve.php'>
       <button name='id' value='$id' type='submit'>Reserve</button></div><br/><br/>
@@ -35,6 +40,32 @@ echo "<td> $name </td>";
   </td>
   </tr>";
 
+}
+
+if($reserved==0 && $vendingmachine=='tokyo') {     // 0 = available, 1 = not available
+
+    //table creationnnn
+    echo "<h2>Tokyo</h2>";
+    
+    echo "<td> $name </td>";
+          echo "<div class='button-wrapper'><br/><td><form class='button return-button' method='GET' action='reserve.php'>
+          <button name='id' value='$id' type='submit'>Reserve</button></div><br/><br/>
+          </form>
+      </td>
+      </tr>";
+}
+
+if($reserved==0 && $vendingmachine=='stockholm') {     // 0 = available, 1 = not available
+
+    //table creationnnn
+    echo "<h2>Stockholm</h2>";
+    
+    echo "<td> $name </td>";
+          echo "<div class='button-wrapper'><br/><td><form class='button return-button' method='GET' action='reserve.php'>
+          <button name='id' value='$id' type='submit'>Reserve</button></div><br/><br/>
+          </form>
+      </td>
+      </tr>";
 
 mysqli_close($db);
 
@@ -43,10 +74,3 @@ mysqli_close($db);
 }
 ?>
 </div>
-
-<div class="col-md-4">
-</div>
-
-<div class="col-md-4">
-</div>
-

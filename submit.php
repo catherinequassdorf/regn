@@ -1,3 +1,6 @@
+<?php include('config.php');?>
+<?php include('connect.php');?>
+
 <title>Registration!</title>
 </head>
 
@@ -5,22 +8,26 @@
 <h2>Registration successful!</h2>
 
 <?php
+ 
+ // lägg till säkerhet här
 
-$username = $_POST['username'];
-$password = $_POST['password'];
+ $username = $_POST['username'];
+ $password = $_POST['password'];
 
-$db = mysqli_connect('localhost', 'root', 'root', 'regn') or die('Error connecting');
+//insert into dtabase
+$sql = "INSERT INTO customer (username, password) VALUES ('$username', '$password')";
 
-$query = "INSERT INTO customer (username, password, usertype) " . 
-"VALUES ('$username', '$password', 0)";
-
-$result = mysqli_query ($db, $query) //här är de fel
-    or die('Error querying database.');
-
+if(mysqli_query($db, $sql)){
+    echo "Yay! Successful!";
+} else{
+    echo "ERROR: $sql. " . mysqli_error($db);
+}
+ 
 mysqli_close($db);
 
-    echo 'You added the user ' . $username . ' which has the password ' . $password;
+echo 'You added the user ' . $username . ' which has the password ' . $password;
 
 ?>
+
 <br/>
-<a href="/index.php">Go back to startpage</a>
+<a href="/user.php">Go to your profile!</a>

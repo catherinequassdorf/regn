@@ -1,10 +1,18 @@
 <?php include('templates/header.php');?>
-
+<div class="row-regn">
+<div class="col-md-12">
+<h2>Register</h2>
+<div id="login">
 <form method="POST" action="submit.php">
-						<label for="username">Username:</label>
-                        <input type="text" id="username" name="username" /><br />
-                        <label for="password">Password:</label>
-                        <input type="text" id="password" name="password" />
-                        <input type="submit" value="Register!" name="submit" />
+            <p>Username</p>
+            <input type="text" name="username">
+            <span style="display:block; height: 22px;"></span>
+            <p>Password</p>
+            <input type="password" name="password">
+            <input type="submit" value="Login">
+          </form>
+</div>
+</div>
+</div>
 
 					</form>

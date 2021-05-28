@@ -15,7 +15,7 @@
  $password = $_POST['password'];
 
 //insert into dtabase
-$sql = "INSERT INTO customer (username, password) VALUES ('$username', '$password')";
+$sql = "INSERT INTO customer (username, password) VALUES ('$username', '".md5($password)."')";
 
 if(mysqli_query($db, $sql)){
     echo "Yay! Successful!";

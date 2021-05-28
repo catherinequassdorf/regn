@@ -30,7 +30,7 @@ $vendingmachine=$row['vendingmachine'];
 $reserved=$row['reserved'];
 
 
-if($onloan==0) {     // 0 = available, 1 = not available
+if($reserved==0) {     // 0 = available, 1 = not available
     //table creationnnn
     echo "<tr>";
     echo "<td> $name </td>";
@@ -49,20 +49,19 @@ if($onloan==0) {     // 0 = available, 1 = not available
 
 <?php
 
-echo "<h1>welcome ".$_SESSION['customerID']."</h1>";
+echo "<h1>welcome ".$_SESSION['user']."</h1>";
 
 if (isset($_POST['reserve'])) {
  $umbrellaID = $_POST['reserve']; //denna gör så att det kopplas till rätt paraply UNIK
  $customerID = $_SESSION['customerID'];
 
-//insert into dtabase
-$sql = "INSERT INTO `customerUmbrella` (`umbrella_fk`, `customer_fk`, `whenadded`) VALUES ('$umbrellaID', '$customerID', '2021-05-28')";
+ $query1 = "UPDATE umbrella SET reserved=1 WHERE umbrellaID=$umbrellaID";
+ $query2 = "INSERT INTO `customerUmbrella` (`umbrella_fk`, `customer_fk`, `whenadded`) VALUES ('$umbrellaID', '$customerID', '2021-05-28')";
 
-if(mysqli_query($db, $sql)){
-    echo "Yay! Successful!";
-} else{
-    echo "ERROR: $sql. " . mysqli_error($db);
-}
+$stmt1 = $db->prepare($query1);
+$stmt2 = $db->prepare($query2);
+$stmt1->execute();
+$stmt2->execute();
 }
 ?>
 

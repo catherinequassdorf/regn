@@ -1,6 +1,6 @@
-<?php include('templates/header.php');?>
 <?php include('config.php');?>
 <?php include('connect.php');?>
+<?php include('templates/header.php');?>
 
 <div class="row-regn">
 <div class="col-md-12">
@@ -35,11 +35,8 @@
           // Verify user password and set $_SESSION -> sessions allows to stora away individual pieces of information (like cookies), but the data gets stored on server instead of client.
             $_SESSION['customerID'] = $row["customerID"]; //sets user ID for session
             $_SESSION['user'] = $username; //username is same as variable above
-           // $_SESSION['password'] = $row["password"]; 
             $_SESSION['usertype'] = $row["usertype"]; //sets usertype for session
-           $_SESSION['umbrella_fk'] = $row["umbrella_fk"];
-           $_SESSION['rainponcho_fk'] = $row["rainponcho_fk"];
-            $_SESSION['loginstatus'] = true; //user is logged in and visible in nav
+           // $_SESSION['loginstatus'] = true; //user is logged in and visible in nav
             // add ip for session hijacking
         
 
@@ -61,7 +58,7 @@
     }
 
     
-  if (!isset($_SESSION['user']) && ['customerID'] ){ ?>
+  if (!isset($_SESSION['user']) ){ ?>
       <div id="login">
           <form action="login.php" method="POST">
             <p>Username</p>

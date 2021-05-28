@@ -1,3 +1,5 @@
+<?php include('config.php');?>
+<?php include('connect.php');?>
 <?php include('templates/header.php');?>
 
 <div class="col-md-12">

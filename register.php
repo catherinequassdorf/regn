@@ -4,6 +4,8 @@
 <div class="row-regn">
 <div class="col-md-12">
 <h2>Register</h2>
+
+
 <div id="login">
 <form method="POST" action="submit.php">
             <p>Username</p>

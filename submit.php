@@ -30,4 +30,4 @@ echo 'You added the user ' . $username . ' which has the password ' . $password;
 ?>
 
 <br/>
-<a href="/user.php">Go to your profile!</a>
+<a href="/login.php">Login now!</a>

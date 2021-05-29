@@ -40,14 +40,7 @@
             // add ip for session hijacking
         
 
-          if ($row['usertype'] == '1') {
-            header("location:user.php");
-        } else if ($row['usertype'] == '2') {
-            header("location:admin.php");
-        } else {
-          echo "<h3> Login failed </h3>";
-          //usertype gör så att det strular
-        }
+            header("location:myreservations.php");
 
         
 

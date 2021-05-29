@@ -6,10 +6,17 @@
 <div class="d-flex justify-content-center">
     <h2>Available products to reserve!</h2>
 </div>
+<div class="d-flex justify-content-center">
+    <p>The daily rate is 89SEK per product.</p>
+</div>
+<div class="d-flex justify-content-center">
+<?php
+echo "<p>Welcome <b>".$_SESSION['user']."</b>! You can book your wanted products here.</p>";
+?>
+</div>
 </div>
 
 
-<div class="col-md-12">
 <?php
 
 $sql = mysqli_query($db, "SELECT *  FROM umbrella");
@@ -29,7 +36,6 @@ $barcode=$row['barcode'];
 $vendingmachine=$row['vendingmachine'];
 $reserved=$row['reserved'];
 
-
 if($reserved==0) {     // 0 = available, 1 = not available
     //table creationnnn
     echo "<tr>";
@@ -40,23 +46,24 @@ if($reserved==0) {     // 0 = available, 1 = not available
           </form>
       </td>
       </tr>";
+} //else { //fixa denna så den bara echoar en gång samt att den ej syns när andra produkter syns
+  //  echo "No available prpducts :(";
+//}
+}
+}
 
-}
-}
-}
 
 ?>
 
 <?php
 
-echo "<h1>welcome ".$_SESSION['user']."</h1>";
 
 if (isset($_POST['reserve'])) {
  $umbrellaID = $_POST['reserve']; //denna gör så att det kopplas till rätt paraply UNIK
  $customerID = $_SESSION['customerID'];
 
- $query1 = "UPDATE umbrella SET reserved=1 WHERE umbrellaID=$umbrellaID";
- $query2 = "INSERT INTO `customerUmbrella` (`umbrella_fk`, `customer_fk`, `whenadded`) VALUES ('$umbrellaID', '$customerID', '2021-05-28')";
+ $query1 = "UPDATE umbrella SET reserved=1 WHERE umbrellaID=$umbrellaID"; //denna funkar
+ $query2 = "INSERT INTO `customerUmbrella` (`id`, `umbrella_fk`, `customer_fk`, `name_fk`, `reserved`, `whenadded`) VALUES (NULL, '$umbrellaID', '$customerID', '$name', '1', now())";
 
 $stmt1 = $db->prepare($query1);
 $stmt2 = $db->prepare($query2);
@@ -65,4 +72,5 @@ $stmt2->execute();
 }
 ?>
 
+</div>
 </div>

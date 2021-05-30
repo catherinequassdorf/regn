@@ -12,7 +12,7 @@ h1,h2,h3 {
     font-weight: 700;
 }
 
-.active {
+.link {
     font-style: italic;
 }
 
@@ -42,4 +42,8 @@ h1,h2,h3 {
 .row-regn {
     margin-top: 88px;
     margin-bottom: 88px;
+}
+
+.return-button {
+   color: red;
 }
